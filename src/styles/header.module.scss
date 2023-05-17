@@ -1,6 +1,7 @@
-@import "colors.scss";
+@import 'colors.scss';
 
 header {
+    box-sizing: border-box;
     width: 100%;
     // height: 80px;
     padding: 0 33px;
@@ -12,7 +13,7 @@ header {
     display: flex;
     justify-content: center;
 
-    transition: background-color .5s;
+    transition: background-color 0.5s;
 }
 
 .header-wrapper {
@@ -57,7 +58,7 @@ a {
     display: block;
     width: max-content;
 
-    transition: color .5s;
+    transition: color 0.5s;
 
     &:hover {
         color: $orange-hover;
@@ -102,12 +103,12 @@ a {
 
     cursor: pointer;
 
-    >div {
+    > div {
         width: 22px;
         height: 3px;
         border-radius: 2px;
         background-color: $orange-main;
-        transition: width .6s;
+        transition: width 0.6s;
 
         display: flex;
         flex-direction: column;
@@ -127,7 +128,7 @@ a {
 
             transform: rotate(0);
             transform-origin: 100% 50%;
-            transition: transform .6s;
+            transition: transform 0.6s;
         }
 
         &::before {
@@ -141,7 +142,7 @@ a {
 }
 
 .menu-open {
-    >div {
+    > div {
         width: 0;
 
         &::before {
@@ -173,7 +174,7 @@ a {
 
     overflow: auto;
 
-    transition: transform .5s;
+    transition: transform 0.5s;
 
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
     -webkit-backdrop-filter: blur(25px);
@@ -201,7 +202,7 @@ a {
         width: 100%;
         max-width: 285px;
 
-        >div {
+        > div {
             width: 100%;
         }
     }
@@ -215,7 +216,7 @@ a {
     align-items: center;
     margin: 50px 0;
 
-    >a {
+    > a {
         width: 44px;
         height: 44px;
 
@@ -227,18 +228,21 @@ a {
         background-color: $white;
 
         img {
-            filter: invert(42%) sepia(90%) saturate(3197%) hue-rotate(1deg) brightness(102%) contrast(108%);
+            filter: invert(42%) sepia(90%) saturate(3197%) hue-rotate(1deg) brightness(102%)
+                contrast(108%);
         }
 
         &:hover {
             img {
-                filter: invert(54%) sepia(44%) saturate(1803%) hue-rotate(338deg) brightness(104%) contrast(101%);
+                filter: invert(54%) sepia(44%) saturate(1803%) hue-rotate(338deg) brightness(104%)
+                    contrast(101%);
             }
         }
-    
+
         &:active {
             img {
-                filter: invert(26%) sepia(72%) saturate(1857%) hue-rotate(4deg) brightness(92%) contrast(103%);
+                filter: invert(26%) sepia(72%) saturate(1857%) hue-rotate(4deg) brightness(92%)
+                    contrast(103%);
             }
         }
     }

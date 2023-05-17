@@ -10,9 +10,7 @@ import Step5 from '../assets/step5.png';
 import styles from '../styles/sixthBlock.module.scss';
 import { useRef } from 'react';
 
-
 const SixthBlock = () => {
-
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
@@ -24,12 +22,13 @@ const SixthBlock = () => {
                 Путь инвестора от инвестиции до <span>51.6% годовых</span>
             </h3>
             <p>
-                Более 5000 геймеров уже играет на нашей периферии, давайте увеличим это число вместе!
+                Более 5000 геймеров уже играет на нашей периферии, давайте увеличим это число
+                вместе!
                 <br />5 шагов от первой встречи до успешного сотрудничества.
             </p>
             <div>
-                <div ref={prevRef} className={`${styles['arrow']} ${styles['arrow-prev']}`}/>
-                <div ref={nextRef} className={styles['arrow']}/>
+                <div ref={prevRef} className={`${styles['arrow']} ${styles['arrow-prev']}`} />
+                <div ref={nextRef} className={styles['arrow']} />
                 <Swiper
                     onInit={(swiper) => {
                         swiper.params.navigation.prevEl = prevRef.current;
@@ -46,26 +45,22 @@ const SixthBlock = () => {
                     modules={[Navigation]}
                     breakpoints={{
                         1300: {
-                            slidesPerView: 3
+                            slidesPerView: 3,
                         },
                         960: {
-                            slidesPerView: 2
-                        }
-                    }}
-                >
+                            slidesPerView: 2,
+                        },
+                    }}>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 1
-                            </p>
+                            <p>Шаг 1</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step1} />
                                 <div>
-                                    <h5>
-                                        Заинтересоваться
-                                    </h5>
+                                    <h5>Заинтересоваться</h5>
                                     <span>
-                                        После оставленной заявки, наш менеджер свяжется с вами в ближайшее время
+                                        После оставленной заявки, наш менеджер свяжется с вами в
+                                        ближайшее время
                                     </span>
                                 </div>
                             </div>
@@ -73,17 +68,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 2
-                            </p>
+                            <p>Шаг 2</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step2} />
                                 <div>
-                                    <h5>
-                                        Познакомиться
-                                    </h5>
+                                    <h5>Познакомиться</h5>
                                     <span>
-                                        Первый диалог будет на тему о нашем бренде, товарном ассортименте и ответах на ваши вопросы
+                                        Первый диалог будет на тему о нашем бренде, товарном
+                                        ассортименте и ответах на ваши вопросы
                                     </span>
                                 </div>
                             </div>
@@ -91,18 +83,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 3
-                            </p>
+                            <p>Шаг 3</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step3} />
                                 <div>
-                                    <h5>
-                                        Убедиться
-                                    </h5>
+                                    <h5>Убедиться</h5>
                                     <span>
-                                        Договор и перевод денежных средств будет нашей отправной точкой
-                                        к пассивному доходу
+                                        Договор и перевод денежных средств будет нашей отправной
+                                        точкой к пассивному доходу
                                     </span>
                                 </div>
                             </div>
@@ -110,17 +98,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 4
-                            </p>
+                            <p>Шаг 4</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step4} />
                                 <div>
-                                    <h5>
-                                        Получить
-                                    </h5>
+                                    <h5>Получить</h5>
                                     <span>
-                                        Мы платим каждый месяц в течение всего срока договора, а в конце возвращаем тело долга
+                                        Мы платим каждый месяц в течение всего срока договора, а в
+                                        конце возвращаем тело долга
                                     </span>
                                 </div>
                             </div>
@@ -128,17 +113,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 5
-                            </p>
+                            <p>Шаг 5</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step5} />
                                 <div>
-                                    <h5>
-                                        Продолжать
-                                    </h5>
+                                    <h5>Продолжать</h5>
                                     <span>
-                                        Продолжительное взаимовыгодное сотрудничество является нашей целью
+                                        Продолжительное взаимовыгодное сотрудничество является нашей
+                                        целью
                                     </span>
                                 </div>
                             </div>
@@ -146,17 +128,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 1
-                            </p>
+                            <p>Шаг 1</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step1} />
                                 <div>
-                                    <h5>
-                                        Заинтересоваться
-                                    </h5>
+                                    <h5>Заинтересоваться</h5>
                                     <span>
-                                        После оставленной заявки, наш менеджер свяжется с вами в ближайшее время
+                                        После оставленной заявки, наш менеджер свяжется с вами в
+                                        ближайшее время
                                     </span>
                                 </div>
                             </div>
@@ -164,17 +143,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 2
-                            </p>
+                            <p>Шаг 2</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step2} />
                                 <div>
-                                    <h5>
-                                        Познакомиться
-                                    </h5>
+                                    <h5>Познакомиться</h5>
                                     <span>
-                                        Первый диалог будет на тему о нашем бренде, товарном ассортименте и ответах на ваши вопросы
+                                        Первый диалог будет на тему о нашем бренде, товарном
+                                        ассортименте и ответах на ваши вопросы
                                     </span>
                                 </div>
                             </div>
@@ -182,18 +158,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 3
-                            </p>
+                            <p>Шаг 3</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step3} />
                                 <div>
-                                    <h5>
-                                        Убедиться
-                                    </h5>
+                                    <h5>Убедиться</h5>
                                     <span>
-                                        Договор и перевод денежных средств будет нашей отправной точкой
-                                        к пассивному доходу
+                                        Договор и перевод денежных средств будет нашей отправной
+                                        точкой к пассивному доходу
                                     </span>
                                 </div>
                             </div>
@@ -201,17 +173,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 4
-                            </p>
+                            <p>Шаг 4</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step4} />
                                 <div>
-                                    <h5>
-                                        Получить
-                                    </h5>
+                                    <h5>Получить</h5>
                                     <span>
-                                        Мы платим каждый месяц в течение всего срока договора, а в конце возвращаем тело долга
+                                        Мы платим каждый месяц в течение всего срока договора, а в
+                                        конце возвращаем тело долга
                                     </span>
                                 </div>
                             </div>
@@ -219,17 +188,14 @@ const SixthBlock = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className={styles['slide-block']}>
-                            <p>
-                                Шаг 5
-                            </p>
+                            <p>Шаг 5</p>
                             <div className={styles['slide-block-content']}>
                                 <img src={Step5} />
                                 <div>
-                                    <h5>
-                                        Продолжать
-                                    </h5>
+                                    <h5>Продолжать</h5>
                                     <span>
-                                        Продолжительное взаимовыгодное сотрудничество является нашей целью
+                                        Продолжительное взаимовыгодное сотрудничество является нашей
+                                        целью
                                     </span>
                                 </div>
                             </div>
@@ -238,7 +204,7 @@ const SixthBlock = () => {
                 </Swiper>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default SixthBlock;

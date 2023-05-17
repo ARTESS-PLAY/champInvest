@@ -1,5 +1,5 @@
 import Button from './Button';
-// import AnimatedNumber from "animated-number-react";
+import AnimatedNumber from 'animated-number-react';
 import React from 'react';
 import { useIntersectionObserver } from 'react-intersection-observer-hook';
 import styles from '../styles/secondBlock.module.scss';
@@ -67,69 +67,58 @@ const SecondBlock = () => {
                 <div className={styles['stats-wrapper']} ref={ref}>
                     <div className={styles['stat-column']}>
                         <p>
-                            {/* <AnimatedNumber
-                            value={isVisible ? 14 : 0}
-                            formatValue={formatValue}
-                            duration={500}
-                        /> */}
-                            14 млн.
-                            {/* <span>
-                            млн.
-                        </span> */}
+                            <AnimatedNumber
+                                value={isVisible ? 14 : 0}
+                                formatValue={formatValue}
+                                duration={500}
+                            />
+                            <span>млн.</span>
                         </p>
                         <span>суммарный охват/мес в TikTok</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
-                            {/* <AnimatedNumber
-                            value={isVisible ? 40000 : 0}
-                            formatValue={formatValue}
-                            duration={500}
-                            delay={400}
-                        /> */}
-                            40000
+                            <AnimatedNumber
+                                value={isVisible ? 40000 : 0}
+                                formatValue={formatValue}
+                                duration={500}
+                                delay={400}
+                            />
                         </p>
                         <span>подписчиков в VK</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
-                            {/* <AnimatedNumber
-                            value={isVisible ? 12000 : 0}
-                            formatValue={formatValue}
-                            duration={500}
-                            delay={1000}
-                        /> */}
-                            12000 +
-                            {/* <span>
-                            +
-                        </span> */}
+                            <AnimatedNumber
+                                value={isVisible ? 12000 : 0}
+                                formatValue={formatValue}
+                                duration={500}
+                                delay={1000}
+                            />
+                            <span>+</span>
                         </p>
                         <span>уникальных посетителей/мес</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
-                            {/* <AnimatedNumber
-                            value={isVisible ? 220000 : 0}
-                            formatValue={formatValue}
-                            duration={500}
-                            delay={1500}
-                        /> */}
-                            220000
+                            <AnimatedNumber
+                                value={isVisible ? 220000 : 0}
+                                formatValue={formatValue}
+                                duration={500}
+                                delay={1500}
+                            />
                         </p>
                         <span>подписчиков на YouTube</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
-                            {/* <AnimatedNumber
-                            value={isVisible ? 43000 : 0}
-                            formatValue={formatValue}
-                            duration={500}
-                            delay={2000}
-                        /> */}
-                            43000 +
-                            {/* <span>
-                            +
-                        </span> */}
+                            <AnimatedNumber
+                                value={isVisible ? 43000 : 0}
+                                formatValue={formatValue}
+                                duration={500}
+                                delay={2000}
+                            />
+                            <span>+</span>
                         </p>
                         <span>просмотров YouTube/мес</span>
                     </div>

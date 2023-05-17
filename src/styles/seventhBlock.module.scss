@@ -5,6 +5,7 @@
     display: flex;
     position: relative;
     padding: 118px 0;
+    overflow-x: clip;
 }
 
 .text-block {
@@ -56,7 +57,7 @@
     height: 862px;
 
     position: absolute;
-    right: -70px;
+    right: 5.2%;
     bottom: -6px;
     transform: translateX(40%);
 
@@ -78,7 +79,7 @@
 
 .gray-bg {
     position: absolute;
-    top:0;
+    top: 0;
     right: 50%;
     width: 100vw;
     transform: translateX(50%);
@@ -91,7 +92,7 @@
     background-position: right;
     background-repeat: no-repeat;
 
-    >div {
+    > div {
         width: 90%;
         height: 100%;
         position: absolute;
@@ -142,7 +143,7 @@
     .list {
         margin: 30px 0;
 
-        .list-element{ 
+        .list-element {
             margin-top: 25px;
             align-items: flex-start;
 
@@ -188,5 +189,3 @@
         background-position: center;
     }
 }
-
-

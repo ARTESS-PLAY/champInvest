@@ -3,8 +3,8 @@
 
 .fifth-block {
     display: flex;
-    padding: 100px 0;
-
+    padding: 72px 0 69px;
+    overflow-x: clip;
     position: relative;
 
     h3 {
@@ -13,7 +13,7 @@
     }
 
     .sub-head {
-        color: #DDDDDD;
+        color: #dddddd;
         line-height: 22px;
     }
 
@@ -31,8 +31,8 @@
 
     max-width: 570px;
     margin-top: 65px;
-    
-    >div {
+
+    > div {
         height: 32px;
     }
 
@@ -46,20 +46,21 @@
         font-size: 16px;
         font-family: 'Proxima Nova', 'Courier New', Courier, monospace;
 
-        color: #4F4F4F;
-        border-bottom: 2px solid #4F4F4F;
+        color: #4f4f4f;
+        border-bottom: 2px solid #4f4f4f;
 
-        transition: border .5s;
+        transition: border 0.5s;
 
         padding-bottom: 10px;
 
-        &:active, &:focus {
+        &:active,
+        &:focus {
             color: $white;
-            
+
             border: 10px solid;
             border-image-slice: 1;
             border-width: 2px;
-            border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%);
+            border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%);
 
             border-left: 0;
             border-right: 0;
@@ -74,7 +75,7 @@
     }
 
     /* Firefox */
-    input[type=number] {
+    input[type='number'] {
         -moz-appearance: textfield;
     }
 
@@ -83,7 +84,7 @@
         border: 10px solid;
         border-image-slice: 1;
         border-width: 2px;
-        border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%);
+        border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%);
 
         border-left: 0;
         border-right: 0;
@@ -91,7 +92,7 @@
     }
 
     input:not(:placeholder-shown):not(:focus) {
-        color: #B6B6B6 !important;
+        color: #b6b6b6 !important;
     }
 
     select {
@@ -101,7 +102,7 @@
 
     .invalid-field {
         input {
-            border-bottom: 2px solid #D4573B;
+            border-bottom: 2px solid #d4573b;
         }
     }
 }
@@ -129,9 +130,9 @@
         display: block;
         width: 100%;
         color: #808080;
-        border-bottom: 2px solid #4F4F4F;
+        border-bottom: 2px solid #4f4f4f;
 
-        transition: border .5s;
+        transition: border 0.5s;
 
         padding-bottom: 10px;
     }
@@ -141,7 +142,7 @@
         border: 10px solid;
         border-image-slice: 1;
         border-width: 2px;
-        border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%);
+        border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%);
 
         border-left: 0;
         border-right: 0;
@@ -160,17 +161,18 @@
         border-radius: 3px;
         box-sizing: border-box;
 
-        transition: transform .5s;
+        transition: transform 0.5s;
 
         transform: scaleY(0);
         transform-origin: 50% 0;
     }
 
-    &::after, &::before {
+    &::after,
+    &::before {
         display: block;
         content: '';
 
-        background-color: #7B7B7B;
+        background-color: #7b7b7b;
 
         width: 10px;
         height: 2px;
@@ -178,7 +180,7 @@
 
         position: absolute;
 
-        transition: all .5s;
+        transition: all 0.5s;
     }
 
     &::before {
@@ -193,13 +195,14 @@
         transform: rotate(45deg);
     }
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
         .select-button-head {
             color: $white;
             border: 10px solid;
             border-image-slice: 1;
             border-width: 2px;
-            border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%);
+            border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%);
 
             border-left: 0;
             border-right: 0;
@@ -261,7 +264,7 @@
 
                 transform: translate(-50%, -50%) scale(0);
 
-                transition: all .3s;
+                transition: all 0.3s;
             }
         }
     }
@@ -306,12 +309,12 @@
 
     cursor: pointer;
 
-    background-color: #7B7B7B;
+    background-color: #7b7b7b;
     margin-right: 15px;
 
     &::before {
         display: block;
-        content: "";
+        content: '';
 
         width: 6px;
         height: 12px;
@@ -327,7 +330,7 @@
         transform: translate(-60%, -40%) rotate(45deg) scaleX(0);
         transform-origin: 100% 50%;
 
-        transition: transform .2s;
+        transition: transform 0.2s;
     }
 }
 
@@ -349,11 +352,11 @@
     display: block;
     height: auto;
     margin-top: 25px;
-    color: #99C027;
+    color: #99c027;
 }
 
 .resError {
-    color: #D4573B;
+    color: #d4573b;
 }
 
 .heroes {
@@ -362,14 +365,14 @@
     background-repeat: no-repeat;
     background-position: bottom;
     width: 1500px;
-    height: 870px;
+    height: 750px;
 
     z-index: -2;
 
     position: absolute;
-    right: 0;
+    right: 8%;
     bottom: -5px;
-    transform: translateX(26%)
+    transform: translateX(26%);
 }
 
 .orange-bg {
@@ -387,7 +390,7 @@
 
 .gray-bg {
     position: absolute;
-    top:0;
+    top: 0;
     right: 50%;
     width: 100vw;
     transform: translateX(50%);
@@ -400,7 +403,7 @@
     background-position: right;
     background-repeat: no-repeat;
 
-    >div {
+    > div {
         width: 90%;
         height: 100%;
         position: absolute;
@@ -425,7 +428,7 @@
 
 .error-span {
     font-size: 14px;
-    color: #D4573B;
+    color: #d4573b;
     white-space: nowrap;
 }
 
@@ -443,22 +446,23 @@
     border: none !important;
     border-color: transparent !important;
     border-radius: 0 !important;
-    color: #4F4F4F !important;
-    border-bottom: 2px solid #4F4F4F !important;
+    color: #4f4f4f !important;
+    border-bottom: 2px solid #4f4f4f !important;
 
     font-size: 16px !important;
 
-    transition: border .5s !important;
+    transition: border 0.5s !important;
 
     padding-bottom: 10px !important;
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
         color: $white !important;
-        
+
         border: 10px solid !important;
         border-image-slice: 1 !important;
         border-width: 2px !important;
-        border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%) !important;
+        border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%) !important;
 
         border-left: 0 !important;
         border-right: 0 !important;
@@ -471,7 +475,7 @@
     border: 10px solid !important;
     border-image-slice: 1 !important;
     border-width: 2px !important;
-    border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%) !important;
+    border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%) !important;
 
     border-left: 0 !important;
     border-right: 0 !important;
@@ -495,9 +499,8 @@
     overflow: unset !important;
     max-height: none !important;
 
-
     li {
-        &:hover, 
+        &:hover,
         &:active {
             background-color: $gray-2 !important;
             color: $bg;
@@ -507,7 +510,6 @@
             }
         }
     }
-
 }
 
 @media (max-width: 1490px) {
@@ -546,7 +548,7 @@
         display: flex;
         flex-direction: column;
 
-        >div {
+        > div {
             width: 100%;
         }
     }
@@ -560,7 +562,8 @@
         flex-direction: column;
         grid-row-gap: 20px;
 
-        >div, button {
+        > div,
+        button {
             width: 100%;
             height: auto;
         }
@@ -589,7 +592,8 @@
             height: 45px;
             overflow: hidden;
 
-            &:active, &:focus {
+            &:active,
+            &:focus {
                 .select-button-head {
                     border: 0;
                 }
@@ -597,7 +601,7 @@
                 height: auto;
                 border-image-slice: 1;
                 border-width: 2px !important;
-                border-image-source: linear-gradient(270deg, #FF9900 0%, #FF5A00 100%) !important;
+                border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%) !important;
             }
         }
 
@@ -624,7 +628,7 @@
             top: 11px !important;
             left: 5px;
 
-            >div {
+            > div {
                 border-radius: 0;
             }
         }

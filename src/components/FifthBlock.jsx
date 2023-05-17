@@ -111,10 +111,10 @@ const FifthBlock = () => {
                 <div className={styles['inner-content']}>
                     <h3>
                         Рассчитать мою доходность
-                        <br /> и <span>оставить заявку</span>
+                        <br /> и&nbsp;<span>оставить заявку</span>
                     </h3>
                     <p className={styles['sub-head']}>
-                        Оставьте заявку и мы свяжемся с Вами в ближайшее время!
+                        Оставьте заявку и&nbsp;мы свяжемся с&nbsp;Вами в&nbsp;ближайшее время!
                     </p>
                     <form ref={form} onSubmit={sendEmail} className={styles['form-wrapper']}>
                         <div className={!validName ? styles['invalid-field'] : undefined}>
@@ -238,7 +238,7 @@ const FifthBlock = () => {
                             }`}
                             onClick={() => setCheckBox(!checkBox)}
                         />
-                        <span>Я согласен с условиями обработки персональных данных</span>
+                        <span>Я согласен с&nbsp;условиями обработки персональных данных</span>
                     </div>
                     <Button onClick={() => submitButton.current.click()}>
                         <span>Отправить запрос</span>

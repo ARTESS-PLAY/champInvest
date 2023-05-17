@@ -25,27 +25,27 @@ const FirstBlock = (props) => {
                         <h2>
                             Инвестиционная возможность
                             <br />
-                            прикоснуться к миру гейминга
+                            прикоснуться к&nbsp;миру гейминга
                         </h2>
                         <h2 className={styles['mobile-view']}>
                             Игровая периферия <br /> от геймеров для геймеров
                         </h2>
                         <p className={styles['mobile-text']}>
-                            Увеличим ваши инвестиции на 51,6% годовых за 12 месяцев, потому что мы
-                            создаем именно то, что покупают!
+                            Увеличим ваши инвестиции на&nbsp;51,6% годовых за&nbsp;12 месяцев,
+                            потому что мы создаем именно то, что&nbsp;покупают!
                         </p>
                         <div className={styles['list']}>
                             <div className={styles['listElement']}>
                                 <div className={styles['listMark-circle']} />
-                                <span>Заключим договор займа до 51,6% годовых</span>
+                                <span>Заключим договор займа до&nbsp;51,6% годовых</span>
                             </div>
                             <div className={styles['listElement']}>
                                 <div className={styles['listMark-circle']} />
-                                <span>Произведем качественные и востребованные товары</span>
+                                <span>Произведем качественные и&nbsp;востребованные товары</span>
                             </div>
                             <div className={styles['listElement']}>
                                 <div className={styles['listMark-circle']} />
-                                <span>Выполним обязательства в установленные сроки</span>
+                                <span>Выполним обязательства в&nbsp;установленные сроки</span>
                             </div>
                             <div className={styles['listElement']}>
                                 <div className={styles['listMark-circle']} />
@@ -53,12 +53,12 @@ const FirstBlock = (props) => {
                             </div>
                         </div>
                         <p className={styles['mobile-view']}>
-                            Увеличим ваши инвестиции на 51,6% годовых за 12 месяцев, потому что мы
-                            создаем именно то, что покупают!
+                            Увеличим ваши инвестиции на&nbsp;51,6% годовых за&nbsp;12 месяцев,
+                            потому что&nbsp;мы создаем именно то, что&nbsp;покупают!
                         </p>
                         <AnchorLink offset={150} href="#fifthBlock">
                             <Button>
-                                <span>узнать о нас подробнее</span>
+                                <span>узнать о&nbsp;нас подробнее</span>
                             </Button>
                         </AnchorLink>
                     </div>

@@ -24,19 +24,23 @@ const SecondBlock = () => {
                     <div className={styles['section-text']}>
                         <h3>
                             Мы создаем игровую периферию -<br />
-                            это всегда <span>актуально</span>
+                            это&nbsp;всегда <span>актуально</span>
                         </h3>
                         <p>
-                            Периферия для геймера, как ракетка для теннисиста - без нее не поиграешь
+                            Периферия для&nbsp;геймера, как&nbsp;ракетка для&nbsp;теннисиста -
+                            без&nbsp;нее не&nbsp;поиграешь
                         </p>
                         <div className={styles['checkList']}>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />
-                                <span>Оборот товаров свыше 3 млн. рублей за 6 месяцев </span>
+                                <span>
+                                    Оборот товаров свыше 3&nbsp;млн.&nbsp;рублей
+                                    за&nbsp;6&nbsp;месяцев 
+                                </span>
                             </div>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />
-                                <span>Пониженная конкуренция из-за ухода западных брендов</span>
+                                <span>Пониженная конкуренцияиз-за&nbsp;ухода западных брендов</span>
                             </div>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />
@@ -44,7 +48,7 @@ const SecondBlock = () => {
                             </div>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />
-                                <span>Более 500 положительных отзывов в сети</span>
+                                <span>Более 500 положительных отзывов в&nbsp;сети</span>
                             </div>
                         </div>
                         <AnchorLink offset={150} href="#fifthBlock">
@@ -54,13 +58,13 @@ const SecondBlock = () => {
                     <div className={styles['image-wrapper']}>
                         <div className={styles['wb-report-text']}>
                             <h4>Показатели WB</h4>
-                            <p>За 6 месяцев</p>
+                            <p>За&nbsp;6 месяцев</p>
                         </div>
                         <div className={styles['wb-report']} />
                         <div className={styles['post']} />
                         <div className={styles['post-text']}>
-                            <h4>Топ 1 мира</h4>
-                            <p>По рейтингу в Valorant</p>
+                            <h4>Топ&nbsp;1 мира</h4>
+                            <p>По рейтингу в&nbsp;Valorant</p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +78,7 @@ const SecondBlock = () => {
                             />
                             <span>млн.</span>
                         </p>
-                        <span>суммарный охват/мес в TikTok</span>
+                        <span>суммарный охват/мес в&nbsp;TikTok</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
@@ -85,7 +89,7 @@ const SecondBlock = () => {
                                 delay={400}
                             />
                         </p>
-                        <span>подписчиков в VK</span>
+                        <span>подписчиков в&nbsp;VK</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
@@ -108,7 +112,7 @@ const SecondBlock = () => {
                                 delay={1500}
                             />
                         </p>
-                        <span>подписчиков на YouTube</span>
+                        <span>подписчиков на&nbsp;YouTube</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>

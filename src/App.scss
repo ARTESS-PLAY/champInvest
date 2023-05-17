@@ -1,0 +1,251 @@
+@import './styles/fonts.scss';
+@import './styles/colors.scss';
+
+body {
+    margin: 0;
+    background-image: url('./assets/bg.svg');
+    background-size: 120%;
+    background-color: $bg;
+    overflow-x: hidden !important;
+    height: auto;
+}
+
+#root {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 33px;
+//   overflow: hidden;
+//   box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+}
+
+h1 {
+    font-size: 136px;
+}
+
+h2 {
+    font-size: 56px;
+}
+
+h3 {
+    font-size: 52px;
+
+    span {
+        color: $orange-main;
+    }
+}
+
+h4 {
+    font-size: 28px;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    color: $white;
+    font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+
+    span {
+        font-size: 52px;
+        font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+    }
+}
+
+h5 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.text-biggest {
+    font-size: 20px;
+} 
+
+p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.text, span, a {
+    font-size: 16px;
+}
+
+.text-state {
+    font-size: 12px;
+}
+
+.text-biggest, p, .text, .text-state, span, a, h5 {
+    color: $white;
+    font-family: 'Proxima Nova', 'Courier New', Courier, monospace;
+    letter-spacing: 0.02em;
+}
+
+.animated-container {
+    font-size: 24px;
+    color: $orange-main;
+}
+
+.popup-content {
+    
+    border: 2px solid $orange-active !important;
+    border-radius: 10px;
+
+    width: 80% !important;
+    height: 85%;
+
+    padding: 16px 0 16px 16px !important;
+}
+
+.gradient-side,
+.gradient-bottom {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+
+    z-index: -1;
+
+    transform: translateX(-50%);
+}
+
+.gradient-side { z-index: -2; }
+
+.gradient-side {
+    width: 60vw;
+    transform: translateX(-85%);
+}
+
+.gradient-side {
+    background: linear-gradient(90deg, #212121 0%, rgba(33, 33, 33, 0.5) 35.94%, rgba(33, 33, 33, 0) 100%);
+}
+
+.gradient-bottom {
+    background: linear-gradient(180deg, rgba(38, 38, 38, 0) 83.24%, rgba(38, 38, 38, 0.25) 94.26%, rgba(38, 38, 38, 0.4) 100%);
+}
+
+@media (max-width: 960px) {
+    #root {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 110px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    h3 {
+        font-size: 52px;
+    
+        span {
+            color: $orange-main;
+        }
+    }
+    
+    h4 {
+        font-size: 28px;
+    }
+
+    h5 {
+        margin: 0;
+        font-size: 22px;
+    }
+    
+    .text-biggest {
+        font-size: 20px;
+    } 
+    
+    p {
+        font-size: 18px;
+        margin: 0;
+    }
+    
+    .text, span, a {
+        font-size: 14px;
+    }
+    
+    .text-state {
+        font-size: 12px;
+    }
+}
+
+.highlight {
+    background-color: transparent !important;
+}
+
+.selected-flag {
+    &:hover,
+    &:active {
+        background-color: transparent !important;
+    }
+}
+
+.flag {
+    top: 34% !important;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+    background-color: transparent !important;
+}
+
+.swiper-backface-hidden .swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-bullet-class {
+    display: block;
+    width: 18px;
+    height: 7px;
+    border-radius: 10px;
+    background-color: #363636;
+    margin: 0 2px;
+
+    transition: all .5s;
+}
+
+.swiper-bullet-active-class {
+    width: 30px;
+    background-color: $orange-main;
+}
+
+.swiper-pagination {
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+@media (max-width: 960px) {
+    .App {
+        overflow-x: hidden;
+        padding: 0 12px;
+    }
+
+    h1 {
+        font-size: 110px;
+    }
+    
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 28px;
+        line-height: 30px !important;
+
+        span {
+            font-size: 28px;
+        }
+    }
+    
+    .gradient-side {
+        display: none;
+    }
+}

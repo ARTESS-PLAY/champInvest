@@ -1,0 +1,179 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import useWindowDimensions from '../hooks/useWindowDimensions';
+import styles from '../styles/fourthBlock.module.scss';
+import { Pagination } from 'swiper';
+
+const FourthBlock = () => {
+
+    const { width } = useWindowDimensions();
+
+    const renderSlideHeader = () => {
+        return (
+            <div className={styles['slide-header']}>
+                <span>
+                    - Your choice -
+                </span>
+                <span>
+                    Champs
+                </span>
+                <span>
+                    - Your choice -
+                </span>
+                <span>
+                    Champs
+                </span>
+                <span>
+                    - Your choice -
+                </span>
+                <span>
+                    Champs
+                </span>
+                <span>
+                    - Your choice -
+                </span>
+                <span>
+                    Champs
+                </span>
+                <span>
+                    - Your choice -
+                </span>
+                <span>
+                    Champs
+                </span>
+                <span>
+                    - Your choice -
+                </span>
+                <span>
+                    Champs
+                </span>
+            </div>
+        )
+    }
+
+    return (
+        <section className={styles['fourthBlock']}>
+            <h3>
+                Почему <span>Champs?</span>
+            </h3>
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                modules={[Pagination]}
+                pagination={{
+                    clickable: false,
+                    enabled: true,
+                    bulletClass: 'swiper-bullet-class',
+                    bulletActiveClass: 'swiper-bullet-active-class',
+                    el: ".swiper-pagination"
+                }}
+                loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: true,
+                }}
+                allowSlideNext={true}
+                allowSlidePrev={true}
+                breakpoints={{
+                    1470: {
+                        slidesPerView: 4,
+                        loop: false,
+                        autoplay: false,
+                        allowSlideNext: false,
+                        allowSlidePrev: false,
+                        pagination: {
+                            enabled: false
+                        }
+                    },
+                    1100: {
+                        slidesPerView: 3,
+                        loop: false,
+                        autoplay: false,
+                        allowSlideNext: true,
+                        allowSlidePrev: true,
+                        pagination: {
+                            enabled: false
+                        }
+                    },
+                    750: {
+                        slidesPerView: 2,
+                        loop: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        allowSlideNext: true,
+                        allowSlidePrev: true,
+                        pagination: {
+                            enabled: false
+                        }
+                    }
+                }}
+            >
+                <SwiperSlide>
+                    <div className={styles['slideBlock']}>
+                        {renderSlideHeader()}
+                        <div className={styles['slide-text']}>
+                            <div className={`${styles['bg-image']} ${styles['money']}`}/>
+                            <h5>
+                                Опыт в индустрии
+                            </h5>
+                            <span>
+                                Наша команда – это люди, 
+                                которые уделяли компьютерным играм огромное количество часов, как in-game, так и out-game. Игровой опыт вкупе со знаниями маркетинга помогает нам создавать качественные изделия, которыми мы пользуемся сами
+                            </span>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className={styles['slideBlock']}>
+                        {renderSlideHeader()}
+                        <div className={styles['slide-text']}>
+                            <div className={`${styles['bg-image']} ${styles['aboba']}`}/>
+                            <h5>
+                                Поддержка от PRO
+                            </h5>
+                            <span>
+                                Нашими девайсами пользуются свыше трехсот профессиональных игроков 
+                                из разных киберспортивных дисциплин, мы благодарны им, 
+                                и делаем все возможное для роста в этом направлении
+                            </span>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className={styles['slideBlock']}>
+                        {renderSlideHeader()}
+                        <div className={styles['slide-text']}>
+                            <div className={`${styles['bg-image']} ${styles['joystick']}`}/>
+                            <h5>
+                                Высокая маржа
+                            </h5>
+                            <span>
+                                Напрямую работаем с фабриками Китая и России, что позволяет нам продавать товары с высокой маржинальностью до 70%
+                            </span>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className={styles['slideBlock']}>
+                        {renderSlideHeader()}
+                        <div className={styles['slide-text']}>
+                            <div className={`${styles['bg-image']} ${styles['headphones']}`}/>
+                            <h5>
+                                Экосистемный подход
+                            </h5>
+                            <span>
+                                Мы не только создаем игровую периферию, а еще и учим людей играть в игры. Наша команда тренеров выступает в качестве наставников, предоставляя индивидуальные и групповые тренировки, а также помогают создавать контент: статьи, посты, фото и видеоматериалы 
+                            </span>
+                        </div>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
+            <div className='swiper-pagination' slot='pagination' />
+        </section>
+    );
+}
+
+export default FourthBlock;

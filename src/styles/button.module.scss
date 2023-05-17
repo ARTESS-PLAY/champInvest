@@ -1,0 +1,57 @@
+@import "colors.scss";
+@import 'fonts.scss';
+
+.button {
+    background-color: $orange-main;
+    color: $white;
+    padding: 17px 30px;
+    font-family: 'Proxima Nova', 'Courier New', Courier, monospace;
+
+    &:hover {
+        background-color: $orange-hover;
+    }
+
+    &:active {
+        background-color: $orange-active;
+    }
+}
+
+.button-skeleton {
+    background-color: transparent;
+    padding: 15px 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $orange-main;
+
+    a, span, div, p {
+        color: $orange-main;
+    }
+
+    &:hover {
+        border-color: $orange-hover;
+        color: $orange-hover;
+    }
+
+    &:active {
+        border-color: $orange-active;
+        color: $orange-active;
+    }
+}
+
+.button, .button-skeleton {
+    cursor: pointer;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+
+    width: max-content;
+
+    transition: 
+        background-color .5s,
+        border-color .5s,
+        color .5s;
+}

@@ -1,0 +1,165 @@
+@import 'fonts.scss';
+@import 'colors.scss';
+
+.fourthBlock {
+    padding: 185px 0 272px;
+
+    h3 {
+        margin-bottom: 60px;
+    }
+}
+
+.slideBlock {
+    max-width: 355px;
+    height: 355px;
+
+    background: linear-gradient(139.56deg, #363636 10.06%, #282828 53.72%, #282828 88%);
+
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+
+    transition: all 5s;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(139.56deg, #EB910A 10.35%, #F37908 53.72%, #FF5A00 88%);
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.4s;
+        z-index: -1;
+    }
+
+    &:hover {
+        .slide-text span{
+            color: $white;
+        }
+
+        &::before {
+            opacity: 1;
+        }
+    }
+    
+
+    .slide-text {
+        margin: 35px 30px;
+
+        h5 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        >span {
+            font-size: 18px;
+            letter-spacing: 0.01em;
+            color: $gray-3;
+        }
+    }
+    // background-image: ;
+
+    .bg-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 15px;
+        z-index: -1;
+
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+
+    .money {
+        background-image: url('../assets/moneyBlack.svg');
+    }  
+
+    &:hover .money {
+        background-image: url('../assets/moneyOrange.svg');
+    }
+
+    .headphones {
+        background-image: url('../assets/headphonesBlack.svg');
+    }  
+
+    &:hover .headphones {
+        background-image: url('../assets/headphonesOrange.svg');
+    }
+
+    .joystick {
+        background-image: url('../assets/joystickBlack.svg');
+    }  
+
+    &:hover .joystick {
+        background-image: url('../assets/joystickOrange.svg');
+    }
+
+    .aboba {
+        background-image: url('../assets/headBlack.svg');
+    }  
+
+    &:hover .aboba {
+        background-image: url('../assets/headOrange.svg');
+    }
+}
+
+.slide-header {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    background-color: $white;
+    padding: 6px 0;
+
+    span {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+        white-space: nowrap;
+
+        &:nth-child(2n + 1) {
+            color: #595959;
+        }
+
+        &:nth-child(2n) {
+            color: $orange-main;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .fourthBlock {
+        padding: 70px 0 100px;
+
+        h3 {
+            margin-bottom: 35px;
+        }
+    }
+
+    .slideBlock {
+        background: linear-gradient(139.56deg, #EB910A 10.35%, #F37908 53.72%, #FF5A00 88%);
+
+        .money {
+            background-image: url('../assets/moneyOrange.svg');
+        }
+    
+        .headphones {
+            background-image: url('../assets/headphonesOrange.svg');
+        }
+    
+        .joystick {
+            background-image: url('../assets/joystickOrange.svg');
+        }
+    
+        .aboba {
+            background-image: url('../assets/headOrange.svg');
+        }
+    }
+}

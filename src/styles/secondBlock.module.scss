@@ -7,7 +7,6 @@
 
 .section-wrapper {
     display: flex;
-
 }
 
 h2 {
@@ -23,7 +22,7 @@ h3 {
 .section-text {
     margin-top: 20px;
     margin-right: 15px;
-    
+
     h3 {
         white-space: nowrap;
     }
@@ -66,7 +65,7 @@ h3 {
     &::before,
     &::after {
         display: block;
-        content: "";
+        content: '';
 
         border-radius: 1px;
         background-color: $white;
@@ -95,7 +94,8 @@ h3 {
     display: flex;
     align-items: center;
 
-    p, h4 {
+    p,
+    h4 {
         white-space: nowrap;
         font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
     }
@@ -110,13 +110,15 @@ h3 {
 }
 
 .wb-report {
+    overflow: hidden;
     width: 282px;
     height: 328px;
-    
-    background-image: url('../assets/wbStats.png');
     background-color: $gray-2;
 
     border-radius: 10px;
+    img {
+        border-radius: 10px;
+    }
     border: solid 4px $gray-2;
 
     position: relative;
@@ -125,10 +127,12 @@ h3 {
 }
 
 .post {
+    img {
+        border-radius: 30px;
+    }
+    overflow: hidden;
     width: 321px;
     height: 696px;
-
-    background-image: url('../assets/comment.png');
     background-color: $gray-2;
 
     border-radius: 30px;
@@ -143,7 +147,7 @@ h3 {
     &::after {
         // ну рэально впадлу
         display: block;
-        content: "";
+        content: '';
 
         background-image: url('../assets/uTurnArrow.svg');
         background-size: contain;
@@ -164,7 +168,7 @@ h3 {
     &::after {
         // ну рэально впадлу
         display: block;
-        content: "";
+        content: '';
 
         background-image: url('../assets/arrowComment.svg');
         background-size: contain;
@@ -196,7 +200,7 @@ h3 {
         color: $orange-main;
         font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
 
-        span {            
+        span {
             font-size: 74px;
             color: $orange-main;
             font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
@@ -295,7 +299,7 @@ h3 {
     }
 
     .post-text {
-        right: 0;        
+        right: 0;
     }
 }
 
@@ -346,7 +350,7 @@ h3 {
             font-size: 16px;
             line-height: 16px;
         }
-        
+
         .post-text {
             order: 1;
             margin-left: 0;
@@ -379,7 +383,7 @@ h3 {
             background-position: center;
         }
 
-        .post-text, 
+        .post-text,
         .wb-report-text {
             &::after {
                 display: none;
@@ -391,5 +395,53 @@ h3 {
         margin: 90px 0;
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width: 1250px) {
+    .post {
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .wb-report {
+        height: auto;
+        max-height: 425px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    h3 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 30px;
+    }
+    h4 {
+        margin-bottom: 5px;
+        font-weight: 400;
+    }
+    .stats-wrapper {
+        width: 100%;
+        .stat-column {
+            padding: 35px 0;
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 74px;
+                line-height: 74px;
+                margin-bottom: 3px;
+            }
+            ~ span {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
     }
 }

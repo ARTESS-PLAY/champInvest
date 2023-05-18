@@ -48,7 +48,7 @@ const SecondBlock = () => {
                             </div>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />
-                                <span>Более 500 положительных отзывов в&nbsp;сети</span>
+                                <span>Более 500 положительных отзывов&nbsp;в&nbsp;сети</span>
                             </div>
                         </div>
                         <AnchorLink offset={150} href="#fifthBlock">
@@ -60,8 +60,12 @@ const SecondBlock = () => {
                             <h4>Показатели WB</h4>
                             <p>За&nbsp;6 месяцев</p>
                         </div>
-                        <div className={styles['wb-report']} />
-                        <div className={styles['post']} />
+                        <div className={styles['wb-report']}>
+                            <img src="./assets/wbStats.png" alt="report" />
+                        </div>
+                        <div className={styles['post']}>
+                            <img src="./assets/comment.png" alt="comment" />
+                        </div>
                         <div className={styles['post-text']}>
                             <h4>Топ&nbsp;1 мира</h4>
                             <p>По рейтингу в&nbsp;Valorant</p>

@@ -153,6 +153,9 @@ h5 {
     margin: 0 auto;
     box-sizing: border-box;
     padding: 0 20px;
+    @media (max-width: 767px) {
+        padding: 0 13px;
+    }
 }
 
 @media (max-width: 960px) {
@@ -257,7 +260,6 @@ h5 {
 @media (max-width: 960px) {
     .App {
         overflow-x: hidden;
-        padding: 0 12px;
     }
 
     h1 {

@@ -45,25 +45,46 @@ const FifthBlock = () => {
     const [checkBox, setCheckBox] = useState(true);
     const [validCheck, setValidCheck] = useState(true);
 
-    const handleInvestTotal = () => {
+    const handleInvestTotal = (sum) => {
         const investTime = form.current.investTime.value;
-        const investAmount = inputSum;
+        const investAmount = sum;
 
         if (investTime != 0) {
             setValidTime(true);
         }
-
+        if (investAmount < 100000) {
+            setTotal(0);
+        }
         if (investTime != 0 && investAmount != 0) {
-            if (investAmount >= 100000 && investAmount < 500000) {
-                setTotal(((1 + investTime * 0.023) * investAmount).toFixed(0));
-            }
-
-            if (investAmount >= 500000 && investAmount < 1000000) {
-                setTotal(((1 + investTime * 0.033) * investAmount).toFixed(0));
-            }
-
-            if (investAmount >= 1000000) {
-                setTotal(((1 + investTime * 0.043) * investAmount).toFixed(0));
+            if (investTime == 6) {
+                if (investAmount >= 100000 && investAmount < 200000) {
+                    setTotal((investAmount * Math.pow(1.01, 6)).toFixed(0));
+                } else if (investAmount >= 200000 && investAmount < 500000) {
+                    setTotal((investAmount * Math.pow(1.013, 6)).toFixed(0));
+                } else if (investAmount >= 500000 && investAmount < 1000000) {
+                    setTotal((investAmount * Math.pow(1.02, 6)).toFixed(0));
+                } else if (investAmount >= 1000000 && investAmount < 1500000) {
+                    setTotal((investAmount * Math.pow(1.024, 6)).toFixed(0));
+                } else if (investAmount >= 1500000 && investAmount < 2000000) {
+                    setTotal((investAmount * Math.pow(1.027, 6)).toFixed(0));
+                } else if (investAmount >= 2000000) {
+                    setTotal((investAmount * Math.pow(1.03, 6)).toFixed(0));
+                }
+            } else if (investTime == 12) {
+                if (investAmount >= 100000 && investAmount < 200000) {
+                    console.log('eeee');
+                    setTotal((investAmount * Math.pow(1.015, 12)).toFixed(0));
+                } else if (investAmount >= 200000 && investAmount < 500000) {
+                    setTotal((investAmount * Math.pow(1.018, 12)).toFixed(0));
+                } else if (investAmount >= 500000 && investAmount < 1000000) {
+                    setTotal((investAmount * Math.pow(1.025, 12)).toFixed(0));
+                } else if (investAmount >= 1000000 && investAmount < 1500000) {
+                    setTotal((investAmount * Math.pow(1.033, 12)).toFixed(0));
+                } else if (investAmount >= 1500000 && investAmount < 2000000) {
+                    setTotal((investAmount * Math.pow(1.036, 12)).toFixed(0));
+                } else if (investAmount >= 2000000) {
+                    setTotal((investAmount * Math.pow(1.04, 12)).toFixed(0));
+                }
             }
         }
     };
@@ -72,7 +93,7 @@ const FifthBlock = () => {
         setInputSum(e.target.value);
         setSumErrorText('');
         setValidSum(true);
-        handleInvestTotal();
+        handleInvestTotal(e.target.value);
     };
 
     const sendEmail = (e) => {

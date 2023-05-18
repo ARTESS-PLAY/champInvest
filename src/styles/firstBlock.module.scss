@@ -211,6 +211,9 @@ h2 {
     @media (max-width: 1500px) and (min-width: 1321px) {
         width: 85%;
     }
+    @media (max-width: 600px) {
+        top: 62px;
+    }
 }
 
 .section-run-wrapper {
@@ -342,5 +345,29 @@ h2 {
 
             background: linear-gradient(180deg, rgba(33, 33, 33, 0.33) 16.19%, #212121 116.94%);
         }
+    }
+}
+
+@media (max-width: 600px) {
+    .first-block {
+        background: linear-gradient(180deg, rgba(33, 33, 33, 0) 16.19%, #212121 116.94%);
+    }
+    h1 {
+        line-height: 110px;
+    }
+    h2 {
+        font-weight: 500;
+    }
+    .inner-content {
+        padding-top: 190px;
+    }
+    .bg-jinx {
+        right: 10px;
+    }
+    .section-run-text span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 3px;
     }
 }

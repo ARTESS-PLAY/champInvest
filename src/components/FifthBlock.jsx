@@ -21,7 +21,7 @@ const FifthBlock = () => {
     const [inputName, setInputName] = useState('');
 
     //телефон
-    const [validPhone, setValidPhone] = useState(false);
+    const [validPhone, setValidPhone] = useState(true);
     const [validPhoneText, setValidPhoneText] = useState('');
     const [inputPhone, setInputPhone] = useState('');
 
@@ -65,15 +65,6 @@ const FifthBlock = () => {
             if (investAmount >= 1000000) {
                 setTotal(((1 + investTime * 0.043) * investAmount).toFixed(0));
             }
-        }
-    };
-
-    const handlePhoneChange = (e) => {
-        console.log(e);
-        if (e.length < 11) {
-            setValidPhone(false);
-        } else {
-            setValidPhone(true);
         }
     };
 
@@ -158,7 +149,11 @@ const FifthBlock = () => {
         }
 
         setEmailText('');
-
+        // form.current.name =
+        // form.current.phone =
+        // form.current.amount = inputSum;
+        // form.current.email =
+        // form.current.duration =
         emailjs
             .sendForm('service_3ar0niq', 'template_mvnuy2d', form.current, 'KEnODjQP4A_FihwyJ')
             .then((res) => {
@@ -169,6 +164,13 @@ const FifthBlock = () => {
                 setEmailText('Ошибка при отправке письма. Попробуйте позже');
                 setSuccessMail(false);
             });
+        form.current.investTime.value = 0;
+        setInputSum(-1);
+        setInputEmail('');
+        setInputName('');
+        setInputPhone('');
+        setInvestTimeButtonText('Срок инвестирования');
+        setTotal(0);
     };
 
     useEffect(() => {
@@ -229,7 +231,7 @@ const FifthBlock = () => {
                                 </span>
                             )}
                         </div>
-                        <div className={!validPhone ? styles['invalid-field'] : undefined}>
+                        <div className={!validPhone ? styles['invalid-field'] : ''}>
                             <ReactPhoneInput
                                 country={'ru'}
                                 onlyCountries={['ru', 'by', 'kz']}
@@ -238,8 +240,8 @@ const FifthBlock = () => {
                                 value={inputPhone}
                                 containerClass={styles['phone-input-wrapper']}
                                 inputClass={`${styles['phone-input-container']} ${
-                                    validPhone ? styles['ok-phone'] : undefined
-                                }`}
+                                    !validPhone ? styles['ok-phone'] : ''
+                                } ${inputPhone.length > 3 ? styles['phone-normal'] : ''}`}
                                 buttonClass={styles['phone-button-container']}
                                 dropdownClass={styles['phone-dropdown-container']}
                                 searchClass={styles['phone-search-container']}
@@ -253,7 +255,7 @@ const FifthBlock = () => {
                                 <span className={styles['error-span']}>{validPhoneText}</span>
                             )}
                         </div>
-                        <div className={!validName ? styles['invalid-field'] : undefined}>
+                        <div className={!validTime ? styles['invalid-field'] : ''}>
                             <select name="investTime" defaultValue={0} onChange={handleInvestTotal}>
                                 <option value={0} hidden />
                                 <option value={6}>от 6 месяцев</option>
@@ -264,7 +266,7 @@ const FifthBlock = () => {
                                 onClick={(e) => e.preventDefault()}>
                                 <span
                                     className={`${styles['select-button-head']} ${
-                                        investTimeButtonText !== 'Срок инвестирования'
+                                        form.current?.investTime?.value != 0
                                             ? styles['select-button-head-selected']
                                             : ''
                                     }`}>

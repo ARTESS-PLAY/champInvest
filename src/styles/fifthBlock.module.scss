@@ -23,6 +23,20 @@
 }
 
 .form-wrapper {
+    .phone-normal {
+        color: $white;
+        border-bottom: 10px solid !important;
+        border-image-slice: 1 !important;
+        border-width: 2px !important;
+        border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%) !important;
+
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+    }
+}
+
+.form-wrapper {
     display: grid;
     align-items: start;
     grid-template-columns: 1fr 1fr;
@@ -348,7 +362,7 @@
     display: flex;
     align-items: center;
 
-    margin-bottom: 50px;
+    margin-bottom: 41px;
 }
 
 .request-response {

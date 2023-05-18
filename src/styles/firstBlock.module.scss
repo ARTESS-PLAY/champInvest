@@ -258,6 +258,14 @@ h2 {
     }
 }
 
+.none-margin {
+    margin: 0;
+    margin-left: 0 !important;
+    span {
+        margin: 0;
+    }
+}
+
 @media (min-width: 1921px) {
     .bg-jinx {
         background-image: url('../assets/jinx.png');

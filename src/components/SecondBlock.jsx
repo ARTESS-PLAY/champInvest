@@ -72,7 +72,7 @@ const SecondBlock = () => {
                     <div className={styles['stat-column']}>
                         <p>
                             <AnimatedNumber
-                                value={isVisible ? 14 : 0}
+                                value={isVisible ? 14.8 : 0}
                                 formatValue={formatValue}
                                 duration={500}
                             />

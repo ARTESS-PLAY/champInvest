@@ -1,6 +1,9 @@
 import Button from './Button';
 import styles from '../styles/firstBlock.module.scss';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import AnimatedNumber from 'animated-number-react';
+import { useIntersectionObserver } from 'react-intersection-observer-hook';
+
 import { use100vh } from 'react-div-100vh';
 
 const FirstBlock = (props) => {
@@ -12,7 +15,13 @@ const FirstBlock = (props) => {
             </span>
         ));
     };
-
+    const formatValue = (value) => {
+        let val = Number(value).toFixed(0);
+        if (value > 999) {
+            return val.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        return val;
+    };
     return (
         <>
             <section
@@ -31,13 +40,33 @@ const FirstBlock = (props) => {
                             Игровая периферия <br /> от геймеров для геймеров
                         </h2>
                         <p className={styles['mobile-text']}>
-                            Увеличим ваши инвестиции на&nbsp;51,6% годовых за&nbsp;12 месяцев,
-                            потому что мы создаем именно то, что&nbsp;покупают!
+                            Увеличим ваши инвестиции на&nbsp;
+                            <span className={styles['none-margin']}>
+                                <AnimatedNumber
+                                    value={51}
+                                    duration={1000}
+                                    delay={1500}
+                                    formatValue={formatValue}
+                                />
+                            </span>
+                            .6% годовых за&nbsp;12 месяцев, потому что мы создаем именно то,
+                            что&nbsp;покупают!
                         </p>
                         <div className={styles['list']}>
                             <div className={styles['listElement']}>
                                 <div className={styles['listMark-circle']} />
-                                <span>Заключим договор займа до&nbsp;51,6% годовых</span>
+                                <span>
+                                    Заключим договор займа до&nbsp;
+                                    <span className={styles['none-margin']}>
+                                        <AnimatedNumber
+                                            value={51}
+                                            duration={1000}
+                                            delay={1500}
+                                            formatValue={formatValue}
+                                        />
+                                    </span>
+                                    .6% годовых
+                                </span>
                             </div>
                             <div className={styles['listElement']}>
                                 <div className={styles['listMark-circle']} />
@@ -53,8 +82,16 @@ const FirstBlock = (props) => {
                             </div>
                         </div>
                         <p className={styles['mobile-view']}>
-                            Увеличим ваши инвестиции на&nbsp;51,6% годовых за&nbsp;12 месяцев,
-                            потому что&nbsp;мы создаем именно то, что&nbsp;покупают!
+                            <span className={styles['none-margin']}>
+                                <AnimatedNumber
+                                    value={51}
+                                    duration={1000}
+                                    delay={1500}
+                                    formatValue={formatValue}
+                                />
+                            </span>
+                            .6% годовых за&nbsp;12 месяцев, потому что&nbsp;мы создаем именно то,
+                            что&nbsp;покупают!
                         </p>
                         <AnchorLink offset={150} href="#fifthBlock">
                             <Button>

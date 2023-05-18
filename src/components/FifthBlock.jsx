@@ -13,25 +13,45 @@ const FifthBlock = () => {
     const form = useRef(null);
     const submitButton = useRef(null);
 
-    const [phone, setPhone] = useState('');
     const [total, setTotal] = useState(0);
-    const [checkBox, setCheckBox] = useState(true);
     const [investTimeButtonText, setInvestTimeButtonText] = useState('Срок инвестирования');
-    const [investAmountButtonText, setInvestAmountButtonText] = useState('Сумма инвестиций');
 
+    //имя
     const [validName, setValidName] = useState(true);
-    const [validEmail, setValidEmail] = useState(true);
-    const [validPhone, setValidPhone] = useState(false);
+    const [inputName, setInputName] = useState('');
 
+    //телефон
+    const [validPhone, setValidPhone] = useState(false);
     const [validPhoneText, setValidPhoneText] = useState('');
+    const [inputPhone, setInputPhone] = useState('');
+
+    //почта
+    const [validEmail, setValidEmail] = useState(true);
+    const [inputEmail, setInputEmail] = useState('');
+
+    //сумма
+    const [validSum, setValidSum] = useState(true);
+    const [inputSum, setInputSum] = useState(-1);
+    const [sumErrorText, setSumErrorText] = useState('');
+
+    //период
+    const [validTime, setValidTime] = useState(true);
 
     const [emailText, setEmailText] = useState('');
     const [emailTextVisible, setEmailTextVisible] = useState(false);
     const [successMail, setSuccessMail] = useState(false);
 
+    //согласие
+    const [checkBox, setCheckBox] = useState(true);
+    const [validCheck, setValidCheck] = useState(true);
+
     const handleInvestTotal = () => {
         const investTime = form.current.investTime.value;
-        const investAmount = form.current.investAmount.value;
+        const investAmount = inputSum;
+
+        if (investTime != 0) {
+            setValidTime(true);
+        }
 
         if (investTime != 0 && investAmount != 0) {
             if (investAmount >= 100000 && investAmount < 500000) {
@@ -49,6 +69,7 @@ const FifthBlock = () => {
     };
 
     const handlePhoneChange = (e) => {
+        console.log(e);
         if (e.length < 11) {
             setValidPhone(false);
         } else {
@@ -56,26 +77,83 @@ const FifthBlock = () => {
         }
     };
 
+    const handleSumChange = (e) => {
+        setInputSum(e.target.value);
+        setSumErrorText('');
+        setValidSum(true);
+        handleInvestTotal();
+    };
+
     const sendEmail = (e) => {
         e.preventDefault();
 
-        setValidName(true);
-        setValidEmail(true);
-        setValidEmail(validate(form.current.email.value));
+        //ВАЛИДАЦИЯ
 
-        let _validName = true;
-        let _validPhone = true;
-        let _validEmail = validate(form.current.email.value);
+        //сумма
+        let _validSum = true;
 
-        if (form.current.name.value.length === 0) {
-            setValidName(false);
-            _validName = false;
+        if (inputSum == -1) {
+            setSumErrorText('Пожалуйста, введите сумму');
+            _validSum = false;
+            setValidSum(_validSum);
+        } else if (inputSum < 100000) {
+            setSumErrorText('Сумма не может быть менее 100.000');
+            _validSum = false;
+            setValidSum(_validSum);
         }
 
-        if (!_validName || !_validPhone || !_validEmail || !checkBox) {
-            setValidName(false);
-            setValidEmail(false);
+        //телефон
+        let _validPhone = true;
+
+        if (inputPhone.length < 11) {
+            _validPhone = false;
+            setValidPhone(_validPhone);
             setValidPhoneText('Пожалуйста, введите номер телефона');
+        }
+
+        //имя
+        let _validName = true;
+
+        if (inputName.length < 2) {
+            _validName = false;
+            setValidName(_validName);
+        }
+
+        //почта
+
+        let _validEmail = true;
+
+        if (!validate(form.current.email.value)) {
+            _validEmail = false;
+            setValidEmail(_validEmail);
+        }
+
+        //период
+
+        let __validTime = true;
+        const investTime = form.current.investTime.value;
+        if (investTime == 0) {
+            __validTime = false;
+            setValidTime(__validTime);
+        }
+
+        //согласие
+
+        let __validCheckbox = true;
+
+        if (!checkBox) {
+            __validCheckbox = false;
+            setValidCheck(__validCheckbox);
+        }
+
+        if (
+            !_validName ||
+            !_validPhone ||
+            !_validEmail ||
+            !__validCheckbox ||
+            !_validSum ||
+            !__validTime
+        ) {
             return;
         }
 
@@ -105,6 +183,12 @@ const FifthBlock = () => {
         }
     }, [emailText]);
 
+    //вспомогалка
+    const helpInputHandle = (e, func, valid) => {
+        func(e.target.value);
+        valid(true);
+    };
+
     return (
         <section className={styles['fifth-block']} id="fifthBlock">
             <div className="container">
@@ -118,7 +202,13 @@ const FifthBlock = () => {
                     </p>
                     <form ref={form} onSubmit={sendEmail} className={styles['form-wrapper']}>
                         <div className={!validName ? styles['invalid-field'] : undefined}>
-                            <input type="text" name="name" placeholder="Ваше имя" />
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Ваше имя"
+                                value={inputName}
+                                onChange={(e) => helpInputHandle(e, setInputName, setValidName)}
+                            />
                             {!validName && (
                                 <span className={styles['error-span']}>
                                     Пожалуйста, укажите имя
@@ -126,7 +216,13 @@ const FifthBlock = () => {
                             )}
                         </div>
                         <div className={!validEmail ? styles['invalid-field'] : undefined}>
-                            <input type="text" name="email" placeholder="E-mail" />
+                            <input
+                                type="text"
+                                name="email"
+                                placeholder="E-mail"
+                                value={inputEmail}
+                                onChange={(e) => helpInputHandle(e, setInputEmail, setValidEmail)}
+                            />
                             {!validEmail && (
                                 <span className={styles['error-span']}>
                                     Пожалуйста, укажите email
@@ -139,7 +235,7 @@ const FifthBlock = () => {
                                 onlyCountries={['ru', 'by', 'kz']}
                                 enableAreaCodes={false}
                                 localization={ru}
-                                value={''}
+                                value={inputPhone}
                                 containerClass={styles['phone-input-wrapper']}
                                 inputClass={`${styles['phone-input-container']} ${
                                     validPhone ? styles['ok-phone'] : undefined
@@ -148,69 +244,86 @@ const FifthBlock = () => {
                                 dropdownClass={styles['phone-dropdown-container']}
                                 searchClass={styles['phone-search-container']}
                                 placeholder="+7 (999) 999-99-99"
-                                onChange={(e) => handlePhoneChange(e)}
+                                onChange={(e) => {
+                                    setInputPhone(e);
+                                    setValidPhone(true);
+                                }}
                             />
                             {!validPhone && (
                                 <span className={styles['error-span']}>{validPhoneText}</span>
                             )}
                         </div>
-                        <select name="investTime" defaultValue={0} onChange={handleInvestTotal}>
-                            <option value={0} hidden />
-                            <option value={6}>от 6 месяцев</option>
-                            <option value={12}>от 12 месяцев</option>
-                        </select>
-                        <button
-                            className={styles['select-button']}
-                            onClick={(e) => e.preventDefault()}>
-                            <span
-                                className={`${styles['select-button-head']} ${
-                                    investTimeButtonText !== 'Срок инвестирования'
-                                        ? styles['select-button-head-selected']
-                                        : undefined
-                                }`}>
-                                {investTimeButtonText}
-                            </span>
-                            <div className={styles['select-button-options']}>
-                                <div
-                                    className={styles['select-button-option']}
-                                    onClick={() => {
-                                        setInvestTimeButtonText('от 6 месяцев');
-                                        form.current.investTime.value = 6;
-                                        handleInvestTotal();
-                                    }}>
+                        <div className={!validName ? styles['invalid-field'] : undefined}>
+                            <select name="investTime" defaultValue={0} onChange={handleInvestTotal}>
+                                <option value={0} hidden />
+                                <option value={6}>от 6 месяцев</option>
+                                <option value={12}>от 12 месяцев</option>
+                            </select>
+                            <button
+                                className={styles['select-button']}
+                                onClick={(e) => e.preventDefault()}>
+                                <span
+                                    className={`${styles['select-button-head']} ${
+                                        investTimeButtonText !== 'Срок инвестирования'
+                                            ? styles['select-button-head-selected']
+                                            : ''
+                                    }`}>
+                                    {investTimeButtonText}
+                                </span>
+                                <div className={styles['select-button-options']}>
                                     <div
-                                        className={`${styles['select-button-option-radio']} ${
-                                            form.current?.investTime?.value == 6
-                                                ? styles['radio-active']
-                                                : undefined
-                                        }`}
-                                    />
-                                    <span>от 6 месяцев</span>
-                                </div>
-                                <div
-                                    className={styles['select-button-option']}
-                                    onClick={() => {
-                                        setInvestTimeButtonText('от 12 месяцев');
-                                        form.current.investTime.value = 12;
-                                        handleInvestTotal();
-                                    }}>
+                                        className={styles['select-button-option']}
+                                        onClick={() => {
+                                            setInvestTimeButtonText('от 6 месяцев');
+                                            form.current.investTime.value = 6;
+                                            handleInvestTotal();
+                                        }}>
+                                        <div
+                                            className={`${styles['select-button-option-radio']} ${
+                                                form.current?.investTime?.value == 6
+                                                    ? styles['radio-active']
+                                                    : undefined
+                                            }`}
+                                        />
+                                        <span>от 6 месяцев</span>
+                                    </div>
                                     <div
-                                        className={`${styles['select-button-option-radio']} ${
-                                            form.current?.investTime?.value == 12
-                                                ? styles['radio-active']
-                                                : undefined
-                                        }`}
-                                    />
-                                    <span>от 12 месяцев</span>
+                                        className={styles['select-button-option']}
+                                        onClick={() => {
+                                            setInvestTimeButtonText('от 12 месяцев');
+                                            form.current.investTime.value = 12;
+                                            handleInvestTotal();
+                                        }}>
+                                        <div
+                                            className={`${styles['select-button-option-radio']} ${
+                                                form.current?.investTime?.value == 12
+                                                    ? styles['radio-active']
+                                                    : undefined
+                                            }`}
+                                        />
+                                        <span>от 12 месяцев</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
-                        <input
-                            type={'number'}
-                            placeholder="Сумма инвестиций (от 100 тыс.)"
-                            name="investAmount"
-                            onChange={handleInvestTotal}
-                        />
+                            </button>
+
+                            {!validTime && (
+                                <span className={styles['error-span']}>
+                                    Пожалуйста, выберете период
+                                </span>
+                            )}
+                        </div>
+                        <div className={!validSum ? styles['invalid-field'] : undefined}>
+                            <input
+                                type={'number'}
+                                placeholder="Сумма инвестиций (от 100 тыс.)"
+                                name="investAmount"
+                                onChange={(e) => handleSumChange(e)}
+                                value={inputSum > -1 ? inputSum : ''}
+                            />
+                            {!validSum && (
+                                <span className={styles['error-span']}>{sumErrorText}</span>
+                            )}
+                        </div>
                         <input
                             style={{ display: 'none' }}
                             type={'submit'}
@@ -231,14 +344,28 @@ const FifthBlock = () => {
                             <span>Примерный итог инвестирования</span>
                         )}
                     </div>
-                    <div className={styles['personal-data-agreement']}>
-                        <div
-                            className={`${styles['checkbox']} ${
-                                checkBox ? styles['checkbox-active'] : undefined
-                            }`}
-                            onClick={() => setCheckBox(!checkBox)}
-                        />
-                        <span>Я согласен с&nbsp;условиями обработки персональных данных</span>
+                    <div
+                        className={
+                            styles['check-field'] +
+                            ` ${!validCheck ? styles['invalid-field'] : undefined}`
+                        }>
+                        <div className={styles['personal-data-agreement']}>
+                            <div
+                                className={`${styles['checkbox']} ${
+                                    checkBox ? styles['checkbox-active'] : ''
+                                }`}
+                                onClick={() => {
+                                    setCheckBox((prev) => !prev);
+                                    setValidCheck(true);
+                                }}
+                            />
+                            <span>Я согласен с&nbsp;условиями обработки персональных данных</span>
+                        </div>
+                        {!validCheck && (
+                            <p>
+                                <span className={styles['error-span']}>Нужно согласиться</span>
+                            </p>
+                        )}
                     </div>
                     <Button onClick={() => submitButton.current.click()}>
                         <span>Отправить запрос</span>

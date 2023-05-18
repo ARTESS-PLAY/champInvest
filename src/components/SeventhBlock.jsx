@@ -37,7 +37,7 @@ const SeventhBlock = () => {
                         </div>
                     </div>
                     <span className={styles['text-note']}>
-                        *исследование компании HP&nbsp;Global Gaming Survey
+                        *исследование компании HP Global&nbsp;Gaming Survey
                     </span>
                 </div>
                 <div className={styles['heroes']} />

@@ -9,11 +9,12 @@ import Youtube from '../assets/youtubeBlack.svg';
 import Telegram from '../assets/telegramBlack.svg';
 
 import motto from '../assets/motto.svg';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
 const Footer = () => {
     const [showPolitic, setShowPolitic] = useState(false);
     const [showRules, setShowRules] = useState(false);
-
+    const windowDimensions = useWindowDimensions();
     return (
         <footer className={styles['footer-wrapper']}>
             <div className="container">
@@ -141,7 +142,13 @@ const Footer = () => {
                         <div>
                             <p>
                                 Подпишитесь на&nbsp;нашу рассылку, чтобы быть всегда в&nbsp;курсе
-                                последних новостей и&nbsp;событий о&nbsp;Champs!
+                                последних новостей
+                                {windowDimensions.width > 900 ? (
+                                    <span>и&nbsp;событий о&nbsp;Champs</span>
+                                ) : (
+                                    ''
+                                )}
+                                !
                             </p>
                             <div className={styles['subscribe']}>
                                 <input type="text" placeholder="Введите ваш e-mail адрес" />

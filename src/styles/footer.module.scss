@@ -43,7 +43,7 @@
 }
 
 .game-card {
-    background: linear-gradient(180deg, #FF5A00 0%, #FF9900 100%);
+    background: linear-gradient(180deg, #ff5a00 0%, #ff9900 100%);
 
     height: 130px;
     width: 355px;
@@ -60,7 +60,6 @@
 
     position: relative;
     overflow: hidden;
-
 
     p {
         font-size: 36px;
@@ -99,10 +98,11 @@
                 width: 60%;
                 height: 60%;
 
-                filter: invert(42%) sepia(90%) saturate(3197%) hue-rotate(1deg) brightness(102%) contrast(108%);
+                filter: invert(42%) sepia(90%) saturate(3197%) hue-rotate(1deg) brightness(102%)
+                    contrast(108%);
             }
 
-            // &:first-child {                
+            // &:first-child {
             //     background-image: url('../assets/vkBlack.svg');
             //     background-size: 60%;
             //     background-position: center;
@@ -124,26 +124,28 @@
             // }
 
             &:hover {
-                &:first-child {                
+                &:first-child {
                     // background-image: url('../assets/vkActive.svg');
                 }
-    
+
                 &:nth-child(2) {
                     // background-image: url('../assets/tiktokActive.svg');
                 }
-    
+
                 &:nth-child(3) {
                     // background-image: url('../assets/youtubeActive.svg');
                 }
 
                 img {
-                    filter: invert(54%) sepia(44%) saturate(1803%) hue-rotate(338deg) brightness(104%) contrast(101%);
+                    filter: invert(54%) sepia(44%) saturate(1803%) hue-rotate(338deg)
+                        brightness(104%) contrast(101%);
                 }
             }
 
             &:active {
                 img {
-                    filter: invert(26%) sepia(72%) saturate(1857%) hue-rotate(4deg) brightness(92%) contrast(103%);
+                    filter: invert(26%) sepia(72%) saturate(1857%) hue-rotate(4deg) brightness(92%)
+                        contrast(103%);
                 }
             }
         }
@@ -176,7 +178,6 @@
 
     background-size: 300%;
     background-position: 25% 22%;
-
 }
 
 .dota {
@@ -190,7 +191,6 @@
 
     background-size: 300%;
     background-position: 24% 22%;
-
 }
 
 .csgo {
@@ -204,7 +204,6 @@
 
     background-size: 250%;
     background-position: 20% 25%;
-
 }
 
 .gayshit {
@@ -218,7 +217,6 @@
 
     background-size: 300%;
     background-position: 23% 24%;
-
 }
 
 .run-text {
@@ -243,7 +241,7 @@
         letter-spacing: 2px;
         font-weight: bold;
 
-        &:nth-child(2n+1) {
+        &:nth-child(2n + 1) {
             color: #595959;
         }
 
@@ -276,7 +274,7 @@
         text-transform: uppercase;
         -webkit-text-stroke: 1px $white;
         // text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff,
-            //    1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+        //    1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
     }
 
     p {
@@ -294,7 +292,7 @@
         height: 56px;
 
         border-radius: 4px;
-        
+
         input {
             border: 0;
             outline: 0;
@@ -325,7 +323,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items:  center;
+    align-items: center;
 
     margin-top: 60px;
 
@@ -342,7 +340,7 @@
         }
     }
 
-    >span {
+    > span {
         color: $gray-1;
     }
 
@@ -361,7 +359,6 @@
         width: 100%;
         padding: 30px;
         font-family: 'Proxima Nova', 'Courier New', Courier, monospace;
-    
     }
 
     display: flex;
@@ -372,7 +369,6 @@
     p {
         color: $bg;
         font-family: 'Proxima Nova', 'Courier New', Courier, monospace;
-    
 
         a {
             color: $orange-main;
@@ -397,7 +393,7 @@
 
 @media (max-width: 1250px) {
     .footer-content {
-        >div {
+        > div {
             width: 50%;
         }
 
@@ -437,6 +433,13 @@
         }
 
         .game-card {
+            padding-top: 31px;
+            P {
+                font-weight: 700;
+                font-size: 34px;
+                line-height: 41px;
+                margin-bottom: 5px;
+            }
             .game-links a {
                 width: 40px;
                 height: 40px;
@@ -448,16 +451,36 @@
             margin: 0;
             max-width: 400px;
             flex-direction: column-reverse;
-
+            p {
+                font-size: 16px;
+                line-height: 19px;
+            }
             .motto {
                 font-size: 30px;
                 margin-top: 60px;
             }
+            .subscribe {
+                input {
+                    margin: 17px 10px;
+                    font-size: 14px;
+                    line-height: 17px;
+                    &::placeholder {
+                        font-size: 14px;
+                        line-height: 17px;
+                    }
+                }
+                div {
+                    font-family: 'Proxima Nova';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 17px;
+                }
+            }
         }
     }
-
     .footer-info {
-        >div {
+        > div {
             flex-direction: column;
             align-items: center;
 

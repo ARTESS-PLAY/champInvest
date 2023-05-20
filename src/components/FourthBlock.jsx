@@ -106,7 +106,7 @@ const FourthBlock = () => {
                         <div className={styles['slideBlock']}>
                             {renderSlideHeader()}
                             <div className={styles['slide-text']}>
-                                <div className={`${styles['bg-image']} ${styles['aboba']}`} />
+                                <div className={`${styles['bg-image']} ${styles['headphones']}`} />
                                 <h5>Поддержка от PRO</h5>
                                 <span>
                                     Нашими девайсами пользуются свыше трехсот профессиональных
@@ -135,7 +135,7 @@ const FourthBlock = () => {
                         <div className={styles['slideBlock']}>
                             {renderSlideHeader()}
                             <div className={styles['slide-text']}>
-                                <div className={`${styles['bg-image']} ${styles['headphones']}`} />
+                                <div className={`${styles['bg-image']}  ${styles['aboba']}`} />
                                 <h5>Экосистемный подход</h5>
                                 <span>
                                     Мы не только создаем игровую периферию, а&nbsp;еще и&nbsp;учим

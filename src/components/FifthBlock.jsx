@@ -58,32 +58,31 @@ const FifthBlock = () => {
         if (investTime != 0 && investAmount != 0) {
             if (investTime == 6) {
                 if (investAmount >= 100000 && investAmount < 200000) {
-                    setTotal((investAmount * Math.pow(1.01, 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.01 * 6)).toFixed(0));
                 } else if (investAmount >= 200000 && investAmount < 500000) {
-                    setTotal((investAmount * Math.pow(1.013, 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.013 * 6)).toFixed(0));
                 } else if (investAmount >= 500000 && investAmount < 1000000) {
-                    setTotal((investAmount * Math.pow(1.02, 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.02 * 6)).toFixed(0));
                 } else if (investAmount >= 1000000 && investAmount < 1500000) {
-                    setTotal((investAmount * Math.pow(1.024, 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.024 * 6)).toFixed(0));
                 } else if (investAmount >= 1500000 && investAmount < 2000000) {
-                    setTotal((investAmount * Math.pow(1.027, 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.027 * 6)).toFixed(0));
                 } else if (investAmount >= 2000000) {
-                    setTotal((investAmount * Math.pow(1.03, 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.03 * 6)).toFixed(0));
                 }
             } else if (investTime == 12) {
                 if (investAmount >= 100000 && investAmount < 200000) {
-                    console.log('eeee');
-                    setTotal((investAmount * Math.pow(1.015, 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.015 * 12)).toFixed(0));
                 } else if (investAmount >= 200000 && investAmount < 500000) {
-                    setTotal((investAmount * Math.pow(1.018, 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.018 * 12)).toFixed(0));
                 } else if (investAmount >= 500000 && investAmount < 1000000) {
-                    setTotal((investAmount * Math.pow(1.025, 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.025 * 12)).toFixed(0));
                 } else if (investAmount >= 1000000 && investAmount < 1500000) {
-                    setTotal((investAmount * Math.pow(1.033, 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.033 * 12)).toFixed(0));
                 } else if (investAmount >= 1500000 && investAmount < 2000000) {
-                    setTotal((investAmount * Math.pow(1.036, 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.036 * 12)).toFixed(0));
                 } else if (investAmount >= 2000000) {
-                    setTotal((investAmount * Math.pow(1.04, 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.04 * 12)).toFixed(0));
                 }
             }
         }
@@ -170,11 +169,6 @@ const FifthBlock = () => {
         }
 
         setEmailText('');
-        // form.current.name =
-        // form.current.phone =
-        // form.current.amount = inputSum;
-        // form.current.email =
-        // form.current.duration =
         emailjs
             .sendForm('service_3ar0niq', 'template_mvnuy2d', form.current, 'KEnODjQP4A_FihwyJ')
             .then((res) => {
@@ -228,7 +222,7 @@ const FifthBlock = () => {
                             <input
                                 type="text"
                                 name="name"
-                                placeholder="Ваше имя"
+                                placeholder="Имя"
                                 value={inputName}
                                 onChange={(e) => helpInputHandle(e, setInputName, setValidName)}
                             />
@@ -242,7 +236,7 @@ const FifthBlock = () => {
                             <input
                                 type="text"
                                 name="email"
-                                placeholder="E-mail"
+                                placeholder={validEmail ? 'E-mail' : 'example@mail.com'}
                                 value={inputEmail}
                                 onChange={(e) => helpInputHandle(e, setInputEmail, setValidEmail)}
                             />
@@ -277,7 +271,10 @@ const FifthBlock = () => {
                             )}
                         </div>
                         <div className={!validTime ? styles['invalid-field'] : ''}>
-                            <select name="investTime" defaultValue={0} onChange={handleInvestTotal}>
+                            <select
+                                name="investTime"
+                                defaultValue={0}
+                                onChange={() => handleInvestTotal(inputSum)}>
                                 <option value={0} hidden />
                                 <option value={6}>от 6 месяцев</option>
                                 <option value={12}>от 12 месяцев</option>
@@ -299,7 +296,7 @@ const FifthBlock = () => {
                                         onClick={() => {
                                             setInvestTimeButtonText('от 6 месяцев');
                                             form.current.investTime.value = 6;
-                                            handleInvestTotal();
+                                            handleInvestTotal(inputSum);
                                         }}>
                                         <div
                                             className={`${styles['select-button-option-radio']} ${
@@ -315,7 +312,7 @@ const FifthBlock = () => {
                                         onClick={() => {
                                             setInvestTimeButtonText('от 12 месяцев');
                                             form.current.investTime.value = 12;
-                                            handleInvestTotal();
+                                            handleInvestTotal(inputSum);
                                         }}>
                                         <div
                                             className={`${styles['select-button-option-radio']} ${
@@ -335,7 +332,7 @@ const FifthBlock = () => {
                                 </span>
                             )}
                         </div>
-                        <div className={!validSum ? styles['invalid-field'] : undefined}>
+                        <div className={!validSum ? styles['invalid-field'] : ''}>
                             <input
                                 type={'number'}
                                 placeholder="Сумма инвестиций (от 100 тыс.)"
@@ -356,7 +353,7 @@ const FifthBlock = () => {
                     </form>
                     <div
                         className={`${styles['total-invest']} ${
-                            total > 0 ? styles['total-visible'] : undefined
+                            total > 0 ? styles['total-visible'] : ''
                         }`}>
                         {total > 0 ? (
                             <p>
@@ -369,8 +366,7 @@ const FifthBlock = () => {
                     </div>
                     <div
                         className={
-                            styles['check-field'] +
-                            ` ${!validCheck ? styles['invalid-field'] : undefined}`
+                            styles['check-field'] + ` ${!validCheck ? styles['invalid-field'] : ''}`
                         }>
                         <div className={styles['personal-data-agreement']}>
                             <div

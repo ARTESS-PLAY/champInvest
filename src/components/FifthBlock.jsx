@@ -81,8 +81,10 @@ const FifthBlock = () => {
                     setTotal((investAmount * (1 + 0.033 * 12)).toFixed(0));
                 } else if (investAmount >= 1500000 && investAmount < 2000000) {
                     setTotal((investAmount * (1 + 0.036 * 12)).toFixed(0));
-                } else if (investAmount >= 2000000) {
+                } else if (investAmount >= 2000000 && investAmount < 5000000) {
                     setTotal((investAmount * (1 + 0.04 * 12)).toFixed(0));
+                } else if (investAmount >= 5000000) {
+                    setTotal((investAmount * (1 + 0.043 * 12)).toFixed(0));
                 }
             }
         }
@@ -95,7 +97,7 @@ const FifthBlock = () => {
         handleInvestTotal(e.target.value);
     };
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
 
         //ВАЛИДАЦИЯ
@@ -169,16 +171,35 @@ const FifthBlock = () => {
         }
 
         setEmailText('');
-        emailjs
-            .sendForm('service_3ar0niq', 'template_mvnuy2d', form.current, 'KEnODjQP4A_FihwyJ')
-            .then((res) => {
-                setEmailText('Спасибо, ваша заявка принята. Скоро мы свяжемся с вами!');
-                setSuccessMail(true);
-            })
-            .catch((err) => {
-                setEmailText('Ошибка при отправке письма. Попробуйте позже');
-                setSuccessMail(false);
+
+        const requestData = {
+            name: inputName,
+            email: inputEmail,
+            amount: inputSum,
+            phone: inputPhone,
+            duration: form.current.investTime.value,
+        };
+        const requestJson = JSON.stringify(requestData);
+        console.log(requestJson);
+        try {
+            const response = await fetch('/server.php', {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                body: requestJson,
             });
+            const responseText = await response.text();
+            console.log(responseText);
+            setEmailText('Спасибо, ваша заявка принята. Скоро мы свяжемся с вами!');
+            setSuccessMail(true);
+        } catch (ex) {
+            console.error('POST error!');
+            console.log(ex);
+            setEmailText('Ошибка при отправке письма. Попробуйте позже');
+            setSuccessMail(false);
+        }
+
         form.current.investTime.value = 0;
         setInputSum(-1);
         setInputEmail('');

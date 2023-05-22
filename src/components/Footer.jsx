@@ -140,16 +140,17 @@ const Footer = () => {
                         </span>
                         {/* <img src={motto} /> */}
                         <div>
-                            <p>
-                                Подпишитесь на&nbsp;нашу рассылку, чтобы быть всегда в&nbsp;курсе
-                                последних новостей
-                                {windowDimensions.width > 900 ? (
-                                    <span>и&nbsp;событий о&nbsp;Champs</span>
-                                ) : (
-                                    ''
-                                )}
-                                !
-                            </p>
+                            {windowDimensions.width > 900 ? (
+                                <p>
+                                    Подпишитесь на&nbsp;нашу рассылку, чтобы быть всегда
+                                    в&nbsp;курсе последних новостей и&nbsp;событий о&nbsp;Champs!
+                                </p>
+                            ) : (
+                                <p>
+                                    Подпишитесь на&nbsp;нашу рассылку, чтобы быть всегда
+                                    в&nbsp;курсе последних новостей!
+                                </p>
+                            )}
                             <div className={styles['subscribe']}>
                                 <input type="text" placeholder="Введите ваш e-mail адрес" />
                                 <div>Подписаться</div>

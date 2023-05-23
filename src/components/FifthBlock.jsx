@@ -10,6 +10,8 @@ import ru from 'react-phone-input-2/lang/ru.json';
 const ReactPhoneInput = PI.default ? PI.default : PI;
 
 const FifthBlock = () => {
+    const [firstForm, setFirstForm] = useState(true);
+
     const form = useRef(null);
     const submitButton = useRef(null);
 
@@ -207,6 +209,10 @@ const FifthBlock = () => {
         setInputPhone('');
         setInvestTimeButtonText('Срок инвестирования');
         setTotal(0);
+        VK.Goal('lead');
+        VK.Retargeting.Event('lead');
+        VK.Goal('contact');
+        VK.Retargeting.Event('contact');
     };
 
     useEffect(() => {
@@ -223,6 +229,11 @@ const FifthBlock = () => {
 
     //вспомогалка
     const helpInputHandle = (e, func, valid) => {
+        if (firstForm) {
+            VK.Goal('initiate_checkout');
+            VK.Retargeting.Event('initiate_checkout');
+            setFirstForm(false);
+        }
         func(e.target.value);
         valid(true);
     };

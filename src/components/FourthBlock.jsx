@@ -136,7 +136,7 @@ const FourthBlock = () => {
                             {renderSlideHeader()}
                             <div className={styles['slide-text']}>
                                 <div className={`${styles['bg-image']}  ${styles['aboba']}`} />
-                                <h5>Экосистемный подход</h5>
+                                <h5>Системный подход</h5>
                                 <span>
                                     Мы не только создаем игровую периферию, а&nbsp;еще и&nbsp;учим
                                     людей играть в&nbsp;игры. Наша команда тренеров выступает

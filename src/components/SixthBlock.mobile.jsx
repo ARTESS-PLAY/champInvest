@@ -12,7 +12,9 @@ const SixthBlockMobile = () => {
                 <h3>
                     Путь инвестора от&nbsp;инвестиции до&nbsp;<span>51.6% годовых</span>
                 </h3>
-                <p>5 шагов от&nbsp;первой встречи до&nbsp;успешного сотрудничества.</p>
+                <p className={styles['pp']}>
+                    5 шагов от&nbsp;первой встречи до&nbsp;успешного сотрудничества.
+                </p>
                 <div className={styles['content-wrapper']}>
                     <div className={styles['slide-block']}>
                         <div className={styles['slide-head']}>

@@ -44,7 +44,7 @@ const SecondBlock = () => {
                             </div>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />
-                                <span>Нашими девайсами пользуются про-игроки</span>
+                                <span>Нашими девайсами пользуются про игроки</span>
                             </div>
                             <div className={styles['checkList-item']}>
                                 <div className={styles['checkList-mark']} />

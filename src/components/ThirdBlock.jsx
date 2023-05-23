@@ -15,7 +15,7 @@ const ThirdBlock = () => {
                         <div className={styles['list-element']}>
                             <div>
                                 <div className={styles['list-mark']} />
-                                <h5>Договор, имеющий силу</h5>
+                                <h5>Договор инвестиционного займа</h5>
                             </div>
                             <p>
                                 Все обязательства регистрируются на&nbsp;ИП, которое занимается
@@ -27,10 +27,7 @@ const ThirdBlock = () => {
                                 <div className={styles['list-mark']} />
                                 <h5>Своевременные выплаты</h5>
                             </div>
-                            <p>
-                                Платить в&nbsp;срок по&nbsp;счетам - это&nbsp;наш принцип, которому
-                                мы не&nbsp;изменяем
-                            </p>
+                            <p>Платить в&nbsp;срок - это&nbsp;наш принцип</p>
                         </div>
                         <div className={styles['list-element']}>
                             <div>

@@ -214,8 +214,7 @@
         transform: rotate(45deg);
     }
 
-    &:active,
-    &:focus {
+    &--active {
         .select-button-head {
             color: $white;
             border: 10px solid;
@@ -613,13 +612,21 @@
             height: 45px;
             overflow: hidden;
 
-            &:active,
-            &:focus {
+            &--active {
                 .select-button-head {
                     border: 0;
                 }
 
                 height: auto;
+                border-image-slice: 1;
+                border-width: 2px !important;
+                border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%) !important;
+            }
+            &--hascontent {
+                .select-button-head {
+                    border: 0;
+                }
+
                 border-image-slice: 1;
                 border-width: 2px !important;
                 border-image-source: linear-gradient(270deg, #ff9900 0%, #ff5a00 100%) !important;

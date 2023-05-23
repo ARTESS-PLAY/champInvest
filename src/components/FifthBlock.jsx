@@ -11,6 +11,28 @@ const ReactPhoneInput = PI.default ? PI.default : PI;
 
 const FifthBlock = () => {
     const [firstForm, setFirstForm] = useState(true);
+    const ref = useRef();
+
+    //селект активе
+    const [selectActive, setSelectActive] = useState(false);
+
+    const handleOutSideClick = (e) => {
+        if (!ref.current.contains(e.target)) {
+            document.removeEventListener('click', handleOutSideClick);
+            setSelectActive(false);
+        }
+    };
+    const handleSelectClick = (e) => {
+        e.preventDefault();
+        if (selectActive) {
+            document.removeEventListener('click', handleOutSideClick);
+            setSelectActive(false);
+            return;
+        }
+
+        setSelectActive(true);
+        document.addEventListener('click', handleOutSideClick);
+    };
 
     const form = useRef(null);
     const submitButton = useRef(null);
@@ -312,8 +334,15 @@ const FifthBlock = () => {
                                 <option value={12}>от 12 месяцев</option>
                             </select>
                             <button
-                                className={styles['select-button']}
-                                onClick={(e) => e.preventDefault()}>
+                                className={`${styles['select-button']} ${
+                                    selectActive ? styles['select-button--active'] : ''
+                                } ${
+                                    form.current?.investTime?.value != 0
+                                        ? styles['select-button--hascontent']
+                                        : ''
+                                }`}
+                                onClick={handleSelectClick}
+                                ref={ref}>
                                 <span
                                     className={`${styles['select-button-head']} ${
                                         form.current?.investTime?.value != 0
@@ -329,6 +358,11 @@ const FifthBlock = () => {
                                             setInvestTimeButtonText('от 6 месяцев');
                                             form.current.investTime.value = 6;
                                             handleInvestTotal(inputSum);
+                                            document.removeEventListener(
+                                                'click',
+                                                handleOutSideClick,
+                                            );
+                                            setSelectActive(false);
                                         }}>
                                         <div
                                             className={`${styles['select-button-option-radio']} ${
@@ -345,6 +379,11 @@ const FifthBlock = () => {
                                             setInvestTimeButtonText('от 12 месяцев');
                                             form.current.investTime.value = 12;
                                             handleInvestTotal(inputSum);
+                                            document.removeEventListener(
+                                                'click',
+                                                handleOutSideClick,
+                                            );
+                                            setSelectActive(false);
                                         }}>
                                         <div
                                             className={`${styles['select-button-option-radio']} ${

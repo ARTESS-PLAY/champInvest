@@ -5,7 +5,7 @@
     display: flex;
     justify-content: flex-end;
 
-    padding: 93px 0 113px;
+    padding: 93px 0 108px;
     position: relative;
 }
 
@@ -15,12 +15,12 @@
     background-repeat: no-repeat;
     background-position: bottom;
     width: 1180px;
-    height: 800px;
+    height: 759px;
 
     position: absolute;
     left: 0;
     bottom: -1px;
-    transform: translateX(-30%);
+    transform: translateX(-12.5%);
 
     z-index: -1;
 }
@@ -31,10 +31,6 @@
 
     h3 {
         margin-bottom: 45px;
-    }
-
-    > div {
-        margin-bottom: 40px;
     }
 }
 

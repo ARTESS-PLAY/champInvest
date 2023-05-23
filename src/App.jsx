@@ -16,6 +16,19 @@ function App() {
 
     const [width, setWidth] = useState(0);
 
+    const [loaded, setLoaded] = useState(false);
+
+    const handleLoaded = () => {
+        setLoaded(true);
+    };
+
+    useEffect(() => {
+        window.addEventListener('load', handleLoaded);
+        return () => {
+            window.removeEventListener('load', handleLoaded);
+        };
+    }, []);
+
     const handleMobileMenu = (val) => {
         setMobileOpen(val);
         document.body.style.overflow = val ? 'hidden' : 'auto';
@@ -36,7 +49,7 @@ function App() {
     return (
         <div className="App">
             <Header mobile={mobileOpen} setOpen={(val) => handleMobileMenu(val)} />
-            <FirstBlock width={width} />
+            <FirstBlock width={width} loaded={loaded} />
             <SecondBlock />
             <SeventhBlock />
             <FourthBlock />

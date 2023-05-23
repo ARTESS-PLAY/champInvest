@@ -23,7 +23,7 @@ header {
 
     max-width: 1480px;
     width: 100%;
-    padding: 33px 0;
+    height: 115px;
     box-sizing: border-box;
 
     img {
@@ -205,6 +205,19 @@ a {
         > div {
             width: 100%;
         }
+    }
+}
+.invest-button {
+    width: 206px;
+    height: 54px;
+    > div {
+        width: 206px !important;
+        height: 54px !important;
+        box-sizing: border-box;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

@@ -1,4 +1,4 @@
-@import "colors.scss";
+@import 'colors.scss';
 @import 'fonts.scss';
 
 .button {
@@ -23,7 +23,10 @@
     border-style: solid;
     border-color: $orange-main;
 
-    a, span, div, p {
+    a,
+    span,
+    div,
+    p {
         color: $orange-main;
     }
 
@@ -38,7 +41,8 @@
     }
 }
 
-.button, .button-skeleton {
+.button,
+.button-skeleton {
     cursor: pointer;
     box-sizing: border-box;
     text-transform: uppercase;
@@ -50,8 +54,5 @@
 
     width: max-content;
 
-    transition: 
-        background-color .5s,
-        border-color .5s,
-        color .5s;
+    transition: background-color 0.5s, border-color 0.5s, color 0.5s;
 }

@@ -2,9 +2,9 @@ import Button from './Button';
 import styles from '../styles/firstBlock.module.scss';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import AnimatedNumber from 'animated-number-react';
-import { useIntersectionObserver } from 'react-intersection-observer-hook';
 
 import { use100vh } from 'react-div-100vh';
+import { useEffect } from 'react';
 
 const FirstBlock = (props) => {
     const renderRunText = (length = 10) => {
@@ -22,6 +22,7 @@ const FirstBlock = (props) => {
         }
         return val;
     };
+
     return (
         <>
             <section
@@ -40,7 +41,7 @@ const FirstBlock = (props) => {
                             Игровая периферия <br /> от геймеров для геймеров
                         </h2>
                         <p className={styles['mobile-text']}>
-                            Увеличим ваши инвестиции на&nbsp;
+                            Увеличим ваши инвестиции до&nbsp;
                             <span className={styles['none-margin']}>
                                 <AnimatedNumber
                                     value={51}
@@ -68,18 +69,26 @@ const FirstBlock = (props) => {
                                     .6% годовых
                                 </span>
                             </div>
-                            <div className={styles['listElement']}>
-                                <div className={styles['listMark-circle']} />
-                                <span>Произведем качественные и&nbsp;востребованные товары</span>
-                            </div>
-                            <div className={styles['listElement']}>
-                                <div className={styles['listMark-circle']} />
-                                <span>Выполним обязательства в&nbsp;установленные сроки</span>
-                            </div>
-                            <div className={styles['listElement']}>
-                                <div className={styles['listMark-circle']} />
-                                <span>Продолжим наше взаимовыгодное сотрудничество</span>
-                            </div>
+                            {props.loaded && (
+                                <>
+                                    <div className={styles['listElement']}>
+                                        <div className={styles['listMark-circle']} />
+                                        <span>
+                                            Произведем качественные и&nbsp;востребованные товары
+                                        </span>
+                                    </div>
+                                    <div className={styles['listElement']}>
+                                        <div className={styles['listMark-circle']} />
+                                        <span>
+                                            Выполним обязательства в&nbsp;установленные сроки
+                                        </span>
+                                    </div>
+                                    <div className={styles['listElement']}>
+                                        <div className={styles['listMark-circle']} />
+                                        <span>Продолжим наше взаимовыгодное сотрудничество</span>
+                                    </div>
+                                </>
+                            )}
                         </div>
                         <p className={styles['mobile-view']}>
                             <span className={styles['none-margin']}>

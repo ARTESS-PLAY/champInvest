@@ -81,24 +81,28 @@ const FifthBlock = () => {
         }
         if (investTime != 0 && investAmount != 0) {
             if (investTime == 6) {
-                if (investAmount >= 100000 && investAmount < 200000) {
-                    setTotal((investAmount * (1 + 0.01 * 6)).toFixed(0));
+                if (investAmount >= 20000 && investAmount < 100000) {
+                    setTotal((investAmount * (1 + 0.015 * 6)).toFixed(0));
+                } else if (investAmount >= 100000 && investAmount < 200000) {
+                    setTotal((investAmount * (1 + 0.018 * 6)).toFixed(0));
                 } else if (investAmount >= 200000 && investAmount < 500000) {
-                    setTotal((investAmount * (1 + 0.013 * 6)).toFixed(0));
-                } else if (investAmount >= 500000 && investAmount < 1000000) {
                     setTotal((investAmount * (1 + 0.02 * 6)).toFixed(0));
+                } else if (investAmount >= 500000 && investAmount < 1000000) {
+                    setTotal((investAmount * (1 + 0.023 * 6)).toFixed(0));
                 } else if (investAmount >= 1000000 && investAmount < 1500000) {
-                    setTotal((investAmount * (1 + 0.024 * 6)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.025 * 6)).toFixed(0));
                 } else if (investAmount >= 1500000 && investAmount < 2000000) {
                     setTotal((investAmount * (1 + 0.027 * 6)).toFixed(0));
                 } else if (investAmount >= 2000000) {
                     setTotal((investAmount * (1 + 0.03 * 6)).toFixed(0));
                 }
             } else if (investTime == 12) {
-                if (investAmount >= 100000 && investAmount < 200000) {
-                    setTotal((investAmount * (1 + 0.015 * 12)).toFixed(0));
+                if (investAmount >= 20000 && investAmount < 100000) {
+                    setTotal((investAmount * (1 + 0.017 * 12)).toFixed(0));
+                } else if (investAmount >= 100000 && investAmount < 200000) {
+                    setTotal((investAmount * (1 + 0.02 * 12)).toFixed(0));
                 } else if (investAmount >= 200000 && investAmount < 500000) {
-                    setTotal((investAmount * (1 + 0.018 * 12)).toFixed(0));
+                    setTotal((investAmount * (1 + 0.023 * 12)).toFixed(0));
                 } else if (investAmount >= 500000 && investAmount < 1000000) {
                     setTotal((investAmount * (1 + 0.025 * 12)).toFixed(0));
                 } else if (investAmount >= 1000000 && investAmount < 1500000) {
@@ -406,7 +410,7 @@ const FifthBlock = () => {
                         <div className={!validSum ? styles['invalid-field'] : ''}>
                             <input
                                 type={'number'}
-                                placeholder="Сумма инвестиций (от 100 тыс.)"
+                                placeholder="Сумма инвестиций (от 20 тыс.)"
                                 name="investAmount"
                                 onChange={(e) => handleSumChange(e)}
                                 value={inputSum > -1 ? inputSum : ''}
@@ -462,9 +466,9 @@ const FifthBlock = () => {
                     </Button>
                     <span
                         className={`${styles['request-response']} ${
-                            !successMail ? styles['resError'] : undefined
+                            !successMail ? styles['resError'] : ''
                         }`}>
-                        {emailTextVisible ? emailText : undefined}
+                        {emailTextVisible ? emailText : ''}
                     </span>
                 </div>
                 <div className={`gradient-side ${styles['gradient-side']}`} />

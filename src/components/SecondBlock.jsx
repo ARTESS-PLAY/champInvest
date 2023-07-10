@@ -116,7 +116,7 @@ const SecondBlock = () => {
                                 delay={1500}
                             />
                         </p>
-                        <span>подписчиков на&nbsp;YouTube</span>
+                        <span>подписчиков в&nbsp;TikTok</span>
                     </div>
                     <div className={styles['stat-column']}>
                         <p>
